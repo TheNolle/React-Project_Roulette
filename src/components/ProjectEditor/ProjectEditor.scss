@@ -1,0 +1,39 @@
+.project-editor {
+    .project-list {
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+
+            button {
+                padding: 5px 10px;
+                margin-left: 5px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:first-child {
+                    background-color: #ffc107;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #e0a800;
+                    }
+                }
+
+                &:last-child {
+                    background-color: #dc3545;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #c82333;
+                    }
+                }
+            }
+        }
+    }
+}

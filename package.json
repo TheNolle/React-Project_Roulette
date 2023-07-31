@@ -12,9 +12,11 @@
     "update": "pnpm install && pnpm update"
   },
   "dependencies": {
+    "@types/uuid": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.11.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",

@@ -1,0 +1,76 @@
+.scrolling-list-container {
+    .list {
+        width: 200px;
+        height: 40px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        margin: 20px auto;
+
+        .list-item {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+
+    .selected-project {
+        margin-top: 20px;
+
+        button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #218838;
+            }
+        }
+    }
+
+    .finished-projects {
+        margin-top: 20px;
+
+        div {
+            margin: 5px 0;
+
+            button {
+                padding: 5px 10px;
+                background-color: #dc3545;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+    }
+
+    button {
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: #ccc;
+        }
+    }
+}
