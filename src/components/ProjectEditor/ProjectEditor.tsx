@@ -9,13 +9,14 @@ import { Project } from '../../interfaces/Project'
 // Utils
 import { removeProject, editProject, addProject } from '../../utils/ProjectEditorUtils'
 
-export default function ProjectEditor({ projects, updateProjects }: ProjectEditorProps): JSX.Element {
+export default function ProjectEditor({ projects, updateProjects, setIsEditing }: ProjectEditorProps): JSX.Element {
     const [addingProject, setAddingProject] = useState(false)
     const [newProject, setNewProject] = useState<Project>({ id: '', title: '', description: '', tags: [], images: [], steps: [] })
     const [editingProject, setEditingProject] = useState<Project | null>(null)
 
     const handleAddClick = () => {
         setAddingProject(true)
+        setIsEditing(true)
     }
 
     const handleCreateClick = () => {
@@ -23,18 +24,27 @@ export default function ProjectEditor({ projects, updateProjects }: ProjectEdito
             addProject(newProject, projects, updateProjects)
             setNewProject({ id: '', title: '', description: '' })
             setAddingProject(false)
+            setIsEditing(false)
         }
     }
 
     const handleEditClick = (project: Project) => {
         setEditingProject(project)
+        setIsEditing(true)
     }
 
     const handleSaveClick = () => {
         if (editingProject) {
             editProject(editingProject, projects, updateProjects)
             setEditingProject(null)
+            setIsEditing(false)
         }
+    }
+
+    const cancelCreate = () => {
+        setNewProject({ id: '', title: '', description: '' })
+        setAddingProject(false)
+        setIsEditing(false)
     }
 
     return (
@@ -49,6 +59,7 @@ export default function ProjectEditor({ projects, updateProjects }: ProjectEdito
                     <input placeholder="Images" type="text" value={newProject.images?.join(', ')} onChange={(e) => setNewProject({ ...newProject, images: e.target.value.split(', ') })} />
                     <input placeholder="Steps" type="text" value={newProject.steps?.join(', ')} onChange={(e) => setNewProject({ ...newProject, steps: e.target.value.split(', ') })} />
                     <button onClick={handleCreateClick}>Create</button>
+                    <button onClick={cancelCreate}>Cancel</button>
                 </div>
             ) : editingProject ? (
                 <div className="edit-form">

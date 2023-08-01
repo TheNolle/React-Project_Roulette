@@ -1,4 +1,10 @@
 .scrolling-list-container {
+    .filters {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+    }
+
     .list {
         width: 200px;
         height: 40px;
